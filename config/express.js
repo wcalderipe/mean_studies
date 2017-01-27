@@ -1,6 +1,9 @@
-var express = require('express'),
-	consign = require('consign'),
-	app 	= express();
+var express 	= require('express'),
+	consign 	= require('consign'),
+	bodyParser 	= require('body-parser'), 
+	app 		= express();
+
+app.use(bodyParser.json());
 
 app.use(express.static('./public'));
 

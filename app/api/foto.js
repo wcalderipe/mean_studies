@@ -34,9 +34,17 @@ module.exports = function(app) {
 			return foto._id != req.params.id;
 		});
 
-		console.log(fotos);
-
 		res.sendStatus(204);
+	}
+
+	api.save = function(req, res) {
+		var novaFoto = {};
+		novaFoto._id    = (fotos.length) + 1;
+		novaFoto.titulo = req.body.titulo;
+		novaFoto.url	= req.body.url;
+		
+		fotos.push(novaFoto);
+		res.json(foto);
 	}
 
 	return api;

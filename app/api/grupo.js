@@ -2,7 +2,7 @@ var api = {};
 
 module.exports = function(app) {
 
-	api.lista = function(req, res) {
+	api.list = function(req, res) {
 		var grupos = [
 			{
 				_id: 1,
