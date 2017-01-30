@@ -47,6 +47,27 @@ module.exports = function(app) {
 		res.json(foto);
 	}
 
+	api.edit = function(req, res) {
+
+		var fotoId 	   = req.params.id;
+		var fotoEdited = req.body;
+
+		// Find and return the index of the photo with the same id as the one sent by the route.
+
+		var fotoIndex = fotos.findIndex(function(foto){
+			return foto._id == fotoId;
+		});
+
+		// Update the foto with the new info placed in the req body (fullfiled by the client).
+
+		fotos[fotoIndex] = fotoEdited;
+
+		// 200 -> OK status code.
+
+		res.sendStatus(200);
+
+	}
+
 	return api;
 	
 }

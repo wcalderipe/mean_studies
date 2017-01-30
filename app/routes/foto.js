@@ -9,6 +9,7 @@ module.exports = function(app) {
 
 	app.route('/v1/fotos/:id')
 		.get(api.selectById)
-		.delete(api.deleteById);
+		.delete(api.deleteById)
+		.put(api.edit);
 
 }
