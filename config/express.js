@@ -8,7 +8,8 @@ app.use(bodyParser.json());
 app.use(express.static('./public'));
 
 consign({cwd : 'app'})
-	.include('api')
+	.include('models')
+	.then('api')
 	.then('routes')
 	.into(app);
 
