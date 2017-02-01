@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
  	model 	 = mongoose.model('Foto'),
-	api = {};
+	api 	 = {};
 
 module.exports = function(app) {
 
