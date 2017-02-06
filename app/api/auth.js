@@ -9,12 +9,12 @@ module.exports = function(app) {
 	api.auth = function(req, res) {
 		
 		var login 	 = req.body.login;
-		var password = req.body.password;
+		var senha 	 = req.body.senha;
 
 		model
 			.findOne({
 				login: login,
-				password: password
+				senha: senha
 			})
 			.then(function(user){
 				if(!user) {
@@ -33,6 +33,7 @@ module.exports = function(app) {
 					var token = jwt.sign({login: user.login}, app.get('secret'), {expiresIn: 84600});
 					console.log('Token generated successfully');
 					res.set('x-access-token', token);
+					res.end();
 				}
 			}, function(err) {
 				console.log('Invalid login or password');

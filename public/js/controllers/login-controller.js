@@ -4,20 +4,19 @@ angular.module('alurapic')
 		$scope.user = {};
 		$scope.msg = '';
 
-		$scope.auth = function() {
-			var user = $scope.user;
+	$scope.auth = function() {
+		var user = $scope.user;
 
-			$http.post('/auth', {login: user.login, password: user.password})
-				.then(function() {
-					
-					$location.path('/');
+		$http.post('/auth', user)
+			.then(function() {
+				$location.path('/');
 
-				}, function(err) {
-					console.log(err);
-					$scope.msg = 'Invalid login or password';
-				});
+			}, function(err) {
+				console.log(err);
+				$scope.msg = 'Invalid login or password';
+		});
 		
-		};
+	};
 
 
-	});
+});
